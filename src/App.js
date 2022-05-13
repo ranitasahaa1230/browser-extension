@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { useBrowser } from "./contexts";
+import { pics } from "./database";
+import { HomePage, UserOnboarding } from "./pages";
 
 function App() {
+  const {
+    browserState: { userName }, browserDispatch
+  } = useBrowser();
+  const [bgImage, setBgImage] = useState("");
+
+  useEffect(() => {
+    const getBgImage = pics[Math.floor(Math.random() * pics.length)];
+    setBgImage(getBgImage);
+    const getName=localStorage.getItem("userName");
+    browserDispatch({
+      type: "USERNAME",
+      payload: getName,
+    });
+    // eslint-disable-next-line
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className="h-screen bg-center bg-no-repeat bg-cover"
+      style={{
+        backgroundImage: `url("${bgImage}")`,
+      }}
+    >
+      {userName ? <HomePage /> : <UserOnboarding />}
     </div>
   );
 }
