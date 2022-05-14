@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useBrowser } from "../contexts";
 
 export const Weather = () => {
   const [temp, setTemp] = useState("");
@@ -7,6 +8,7 @@ export const Weather = () => {
   const [image, setImage] = useState("");
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
+  const {browserState:{city}}=useBrowser();
 
   navigator.geolocation.getCurrentPosition((position) => {
     setLatitude(position.coords.latitude);
@@ -14,11 +16,13 @@ export const Weather = () => {
   });
 
   const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${"687323c4b6d49653323ab7e2574d10f4"}`;
+  // const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${"687323c4b6d49653323ab7e2574d10f4"}`;
 
   useEffect(() => {
     (async () => {
       try {
         const { data } = await axios.get(URL);
+        console.log(data.name);
         const { name, main, weather } = data;
         setLocation(name);
         setTemp(Math.round(main.temp));
@@ -28,7 +32,7 @@ export const Weather = () => {
       }
     })();
         // eslint-disable-next-line
-  }, [latitude, longitude]);
+  }, [latitude, longitude,city]);
 
   return (
     <>
