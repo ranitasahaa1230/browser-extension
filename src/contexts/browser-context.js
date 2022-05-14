@@ -8,8 +8,6 @@ const BrowserProvider = ({ children }) => {
         userName:"",
         tasks:"",
         todo:"",
-        quotesOfTheDay:"",
-        city:"",
       });
   return (
     <BrowserContext.Provider value={{browserState, browserDispatch}}>
