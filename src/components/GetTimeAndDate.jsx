@@ -9,6 +9,7 @@ export const GetTimeAndDate = () => {
 
   useEffect(() => {
     getTime();
+    //eslint-disable-next-line
   }, [time]);
 
   const getTime = () => {

@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect} from 'react'
 import { useBrowser } from '../contexts';
 import { quotes } from '../database';
 
