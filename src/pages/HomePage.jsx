@@ -1,12 +1,7 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { Focus, GetTimeAndDate, Quotes, Weather } from "../components";
-import { useBrowser } from "../contexts";
 
 export const HomePage = () => {
-  const {
-    browserState: { userName },
-  } = useBrowser();
-
   return (
     <div className="text-center text-white font-semibold  h-screen flex justify-center	items-center flex-col	">
       <span>
@@ -16,11 +11,15 @@ export const HomePage = () => {
       <span className="text-3xl">
         <GetTimeAndDate />
       </span>
+
       <span>
-        <Focus/>
+        <Focus />
       </span>
 
-      <span className="m-6"><Quotes/></span>
+      <span className="m-6">
+        <Quotes />
+      </span>
+
     </div>
   );
 };
