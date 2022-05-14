@@ -27,6 +27,7 @@ export const Weather = () => {
         console.log(error);
       }
     })();
+        // eslint-disable-next-line
   }, [latitude, longitude]);
 
   return (
