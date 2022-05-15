@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
+import { ImCross } from "react-icons/im";
 
 export const Todo = () => {
   const [text, setText] = useState("");
@@ -62,7 +63,7 @@ export const Todo = () => {
 
   return (
     <>
-      {openTodo && <div className="bg-neutral-800 w-80 h-auto absolute bottom-32 right-10 m-2 p-4 rounded-lg">
+      {openTodo && <div className="bg-neutral-800 w-80 h-auto absolute bottom-32 right-10 m-2 mx-4 p-4 rounded-lg">
         {todos.length === 0 ? (
           <>
             <p className="p-2 text-xl font-medium">Add a todo to get started</p>
@@ -74,7 +75,10 @@ export const Todo = () => {
             </button>
           </>
         ) : (
+        <div className="flex items-center justify-between m-2">
           <p className="text-xl text-left font-medium">Today's Todo</p>
+          <span className="cursor-pointer text-emerald-500" onClick={()=>setOpenTodo(!openTodo)}><ImCross size={14}/></span>
+          </div>
         )}
 
         <div className="text-left m-1 text-xl font-medium">
@@ -127,8 +131,8 @@ export const Todo = () => {
         </div>
       </div>}
 
-      <div className="text-xl font-bold absolute bottom-8 right-14 cursor-pointer" onClick={()=>setOpenTodo(!openTodo)}>
-        Todo
+      <div className="text-xl bg-neutral-400 text-black font-bold p-1 px-2 rounded-md absolute bottom-8 right-14 cursor-pointer" onClick={()=>setOpenTodo(!openTodo)}>
+        TODO
       </div>
     </>
   );
