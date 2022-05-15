@@ -8,9 +8,9 @@ export const Weather = () => {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
 
-  navigator.geolocation.getCurrentPosition((position) => {
-    setLatitude(position.coords.latitude);
-    setLongitude(position.coords.longitude);
+  navigator.geolocation.getCurrentPosition((success) => {
+    setLatitude(success.coords.latitude);
+    setLongitude(success.coords.longitude);
   });
 
   const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${"687323c4b6d49653323ab7e2574d10f4"}`;

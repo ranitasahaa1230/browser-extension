@@ -10,8 +10,6 @@ const browserReducer = (state, action) => {
             greetings:
               action.payload >= 0 && action.payload < 12
                 ? "Good Morning"
-                : action.payload === 12
-                ? "Good Noon"
                 : action.payload >= 12 && action.payload <= 17
                 ? "Good Afternoon"
                 : "Good Evening",
