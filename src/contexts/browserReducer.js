@@ -18,10 +18,6 @@ const browserReducer = (state, action) => {
             return { ...state, tasks: action.payload };
           case "GETQUOTES":
             return { ...state, quotesOfTheDay: action.payload };
-            case "ADD_TODO":
-              return { ...state, todo: action.payload };
-            case "GETQUOTES":
-              return { ...state, quotesOfTheDay: action.payload };
         default:
           throw new Error("Action type not found.");
     }

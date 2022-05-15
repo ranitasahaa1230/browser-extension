@@ -1,17 +1,27 @@
-import React, { useState } from "react";
-import { useBrowser } from "../contexts";
+import React, { useState, useEffect } from "react";
+import { AiFillDelete } from "react-icons/ai";
+import { FaEdit } from "react-icons/fa";
 
 export const Todo = () => {
   const [text, setText] = useState("");
   const [todos, setTodos] = useState([]);
-
-  const {
-    browserState: { todo },
-    browserDispatch,
-  } = useBrowser();
+  const [editId, setEditID] = useState(0);
+  const [openTodo, setOpenTodo] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (editId) {
+      const editTodo = todos.find((i) => i.id === editId);
+      const updateTodo = todos.map((item) =>
+        item.id === editTodo.id
+          ? (item = { id: item.id, text })
+          : { id: item.id, text: item.text, completed: false }
+      );
+      setTodos(updateTodo);
+      setEditID(0);
+      setText("");
+      return;
+    }
   };
   const handleTodo = (e) => {
     if (e.key === "Enter") {
@@ -23,10 +33,35 @@ export const Todo = () => {
       setText("");
     }
   };
-  console.log(todos.length);
+
+  useEffect(() => {
+    if(todos.length>0){
+        localStorage.setItem('todoo',JSON.stringify(todos))
+    }
+  }, [todos])
+
+  useEffect(() => {
+        setTodos(JSON.parse(localStorage.getItem('todoo')) || [])
+  }, []);
+  
+  const editHandler = (id) => {
+    const editTodo = todos.find((elem) => elem.id === id);
+    setText(editTodo.text);
+    setEditID(id);
+  };
+  const deleteHandler = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+  const handleTodos = (id) => {
+    const todoToBeCompleted = todos.find((elem) => elem.id === id);
+    todoToBeCompleted.completed=!todoToBeCompleted.completed
+    const completedTodos=[...todos.filter((todo)=>todo.id !== id),todoToBeCompleted];
+    setTodos(completedTodos)
+  };
+
   return (
     <>
-      <div className="bg-gray-800 w-80 h-auto absolute bottom-32 right-10 m-2 p-4 rounded-lg">
+      {openTodo && <div className="bg-neutral-800 w-80 h-auto absolute bottom-32 right-10 m-2 p-4 rounded-lg">
         {todos.length === 0 ? (
           <>
             <p className="p-2 text-xl font-medium">Add a todo to get started</p>
@@ -42,15 +77,40 @@ export const Todo = () => {
         )}
 
         <div className="text-left m-1 text-xl font-medium">
-          <p>
+          <ul>
             {todos.map((item) => (
-              <div className="flex items-center justify-start gap-1">
-                <input type="checkbox" className="w-4 h-4" />
-                <span className="text-xl">{item.text}</span>
-              </div>
+              <li
+                className="flex items-center justify-start gap-1"
+                key={item.id}
+                style={
+                  item.completed
+                    ? { textDecoration: "line-through" }
+                    : { textDecoration: "none" }
+                }
+              >
+                <input
+                  type="checkbox"
+                  className="w-4 h-4 cursor-pointer"
+                  name={item.text}
+                  value={item.text}
+                  onClick={() => handleTodos(item.id)}
+                />
+                <span className="text-xl m-0.5">{item.text}</span>
+                <span
+                  className="px-1.5 text-lime-400 cursor-pointer"
+                  onClick={() => editHandler(item.id)}
+                >
+                  <FaEdit size={18} />
+                </span>
+                <span
+                  className="text-red-600 cursor-pointer"
+                  onClick={() => deleteHandler(item.id)}
+                >
+                  <AiFillDelete size={20} />
+                </span>
+              </li>
             ))}
-          </p>
-          
+          </ul>
         </div>
         <div className="text-left m-1">
           <form onSubmit={handleSubmit} id="handle-todo">
@@ -64,8 +124,9 @@ export const Todo = () => {
             />
           </form>
         </div>
-      </div>
-      <div className="text-xl font-medium absolute bottom-8 right-14 cursor-pointer">
+      </div>}
+
+      <div className="text-xl font-bold absolute bottom-8 right-14 cursor-pointer" onClick={()=>setOpenTodo(!openTodo)}>
         Todo
       </div>
     </>
