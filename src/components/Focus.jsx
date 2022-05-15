@@ -4,7 +4,7 @@ import { useBrowser } from "../contexts";
 export const Focus = () => {
   const today = new Date().toLocaleDateString();
   const [mainFocus, setMainFocus] = useState(null);
-  const [focusCompleted, setFocusCompleted] = useState(false);
+  // const [focusCompleted, setFocusCompleted] = useState(false);
   const {
     browserState: { tasks },
     browserDispatch,
@@ -36,10 +36,10 @@ export const Focus = () => {
             localStorage.removeItem("tasks");
           }else{
             setMainFocus(getTasks.focus);
-            setFocusCompleted(getTasks.completed);
+            // setFocusCompleted(getTasks.completed);
           }
         }
-
+    // eslint-disable-next-line
   },[])
 
   return (

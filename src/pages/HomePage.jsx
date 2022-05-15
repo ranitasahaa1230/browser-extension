@@ -20,7 +20,7 @@ export const HomePage = () => {
         <Quotes />
       </span>
       <span className="m-1">
-        <Todo/>
+        <Todo />
       </span>
     </div>
   );
