@@ -51,6 +51,7 @@ export const Todo = () => {
   };
   const deleteHandler = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
+    localStorage.removeItem('todoo')
   };
   const handleTodos = (id) => {
     const todoToBeCompleted = todos.find((elem) => elem.id === id);
