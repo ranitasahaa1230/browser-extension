@@ -9,7 +9,6 @@ const BrowserProvider = ({ children }) => {
       time:"",
       greetings:"",
       tasks:"",
-      todo:"",
       quotesOfTheDay:""
       });
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { Focus, GetTimeAndDate, Quotes, Weather } from "../components";
+import { Focus, GetTimeAndDate, Quotes, Todo, Weather } from "../components";
 
 export const HomePage = () => {
   return (
@@ -16,10 +16,12 @@ export const HomePage = () => {
         <Focus />
       </span>
 
-      <span className="m-6">
+      <span className="m-4 absolute bottom-12">
         <Quotes />
       </span>
-
+      <span className="m-1">
+        <Todo />
+      </span>
     </div>
   );
 };
