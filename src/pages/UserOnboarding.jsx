@@ -22,7 +22,7 @@ export const UserOnboarding = () => {
 
   return (
     <>
-      <div className="text-center text-white font-bold  h-screen flex justify-center	items-center flex-col	">
+      <div className="text-center text-white font-bold  h-screen flex justify-center	items-center flex-col	z-10">
         <div>
           <h1 className="text-5xl">Hello, What's your name?</h1>
         </div>

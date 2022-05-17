@@ -3,7 +3,7 @@ import { Focus, GetTimeAndDate, Quotes, Todo, Weather } from "../components";
 
 export const HomePage = () => {
   return (
-    <div className="text-center text-white font-semibold  h-screen flex justify-center	items-center flex-col	">
+    <div className="text-center text-white font-semibold  h-screen flex justify-center	items-center flex-col	z-10">
       <span>
         <Weather />
       </span>
