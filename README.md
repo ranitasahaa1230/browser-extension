@@ -20,6 +20,12 @@
 
 - Replace your boring new tab with a soothing wallpaper that will help you focus and increase your work productivity by adding focus and todos for the day.
 
+## Technologies used
+
+- React JS
+- React Context API + useReducer
+- Tailwind CSS
+
 ## Features 
 
 - Greets you according to the time of the day.
@@ -29,12 +35,6 @@
 - Add additional Todos for the day, you can complete and delete it. Todos gets saved to the local storage.
 - Wallpaper changes on every refresh
 - Quote changes every day
-
-## Technologies used
-
-- React JS
-- React Context API + useReducer
-- Tailwind CSS
 
 ## Live link 
 
