@@ -29,9 +29,9 @@ export const GetTimeAndDate = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-9xl">{time}</h1>
-      <h1 className="m-5 text-6xl py-2 px-4">
+    <div className="font-extrabold">
+      <h1 className="text-5xl sm:text-8xl md:text-9xl">{time}</h1>
+      <h1 className="m-2 md:m-5 md:text-6xl py-2 px-4">
         {greetings}, {userName}.
       </h1>
     </div>

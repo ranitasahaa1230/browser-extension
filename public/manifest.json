@@ -2,16 +2,13 @@
 	"manifest_version": 3,
 	"name": "Moments Of The Day",
 	"author": "Ranita Saha",
-	"version": "1.0.1",
+	"version": "1.5",
 	"description": "A browser extension that will help you focus and increase your work productivity",
-	"content_scripts": [
-	  {
-		"matches": ["<all_urls>"],
-		"js": ["Content.js"]
-	  }
-	],
 	"chrome_url_overrides": {
-	  "newtab": "index.html"
-	},
-	"permissions": ["geolocation", "storage"]
+		  "newtab": "index.html"
+	  },
+	"browser_action": {
+	  "default_icon": "favicon.png",
+	  "default_title": "Moments Of The Day"
+	}
   }
