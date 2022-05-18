@@ -22,15 +22,15 @@
 
 ## Features 
 
-1. Greets you according to the time of the day.
-2. Auto-detects your location.
-3. Displays current time, city, temperature and weather in sync
-4. Add your main Focus of the day, you can edit and delete it. This gets deleted automatically when a new day starts so that user can update a new focus.
-5. Add additional Todos for the day, you can complete and delete it. Todos gets saved to the local storage.
-6. Wallpaper changes on every refresh
-7. Quote changes every day
+- Greets you according to the time of the day.
+- Auto-detects your location.
+- Displays current time, city, temperature and weather in sync
+- Add your main Focus of the day, you can edit and delete it. This gets deleted automatically when a new day starts so that user can update a new focus.
+- Add additional Todos for the day, you can complete and delete it. Todos gets saved to the local storage.
+- Wallpaper changes on every refresh
+- Quote changes every day
 
-## Technologies used 
+## Technologies used
 
 - React JS
 - React Context API + useReducer
