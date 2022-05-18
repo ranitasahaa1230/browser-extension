@@ -40,12 +40,12 @@ export const Weather = () => {
               alt="weather-logo"
               className="w-14"
             />
-            <div className="text-3xl">
+            <div className="sm:text-3xl font-bold">
               {temp}
               <span>&#176;</span>
             </div>
           </div>
-          <span className="m-0 p-0 text-xl mr-2 font-medium">{location}</span>
+          <span className="m-0 p-0 sm:text-xl mr-2 font-bold">{location}</span>
         </div>
       </div>
     </>

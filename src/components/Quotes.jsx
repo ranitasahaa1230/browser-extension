@@ -17,6 +17,6 @@ export const Quotes = () => {
       }, []);
 
   return (
-    <div className="text-xl font-medium">{quotesOfTheDay}</div>
+    <div className="md:text-xl font-medium">{quotesOfTheDay}</div>
   )
 }

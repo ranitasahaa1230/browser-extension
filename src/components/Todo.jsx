@@ -70,7 +70,7 @@ export const Todo = () => {
         <div className="bg-neutral-800 w-80 h-auto absolute bottom-32 right-10 m-2 mx-4 p-4 rounded-lg">
           {todos.length === 0 ? (
             <>
-              <p className="p-2 text-xl font-medium">
+              <p className="p-2 sm:text-xl font-medium">
                 Add a todo to get started
               </p>
               <button
@@ -82,7 +82,7 @@ export const Todo = () => {
             </>
           ) : (
             <div className="flex items-center justify-between m-2">
-              <p className="text-xl text-left font-medium">Today's Todo</p>
+              <p className="sm:text-xl text-left font-medium">Today's Todo</p>
               <span
                 className="cursor-pointer text-emerald-500"
                 onClick={() => setOpenTodo(!openTodo)}
@@ -92,7 +92,7 @@ export const Todo = () => {
             </div>
           )}
 
-          <div className="text-left m-1 text-xl font-medium">
+          <div className="text-left m-1 sm:text-xl font-medium">
             <ul>
               {todos.map((item) => (
                 <li
@@ -111,7 +111,7 @@ export const Todo = () => {
                     value={item.text}
                     onClick={() => handleTodos(item.id)}
                   />
-                  <span className="text-xl m-0.5">{item.text}</span>
+                  <span className="sm:text-xl m-0.5">{item.text}</span>
                   <span
                     className="px-1.5 text-lime-400 cursor-pointer"
                     onClick={() => editHandler(item.id)}
@@ -144,7 +144,7 @@ export const Todo = () => {
       )}
 
       <div
-        className="text-xl bg-neutral-400 text-black font-bold p-1 px-2 rounded-md absolute bottom-8 right-14 cursor-pointer"
+        className="sm:text-xl bg-neutral-400 text-black font-bold p-1 px-2 rounded-md absolute bottom-8 right-14 cursor-pointer"
         onClick={() => setOpenTodo(!openTodo)}
       >
         TODO
