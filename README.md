@@ -16,11 +16,11 @@
 - [Getting Started](#getting-started)
 - [Connect with me](#-connect-with-me)
 
-## About -
+## About 
 
 - Replace your boring new tab with a soothing wallpaper that will help you focus and increase your work productivity by adding focus and todos for the day.
 
-## Features -
+## Features 
 
 1. Greets you according to the time of the day.
 2. Auto-detects your location.
@@ -30,22 +30,22 @@
 6. Wallpaper changes on every refresh
 7. Quote changes every day
 
-## Technologies used -
+## Technologies used 
 
 - React JS
 - React Context API + useReducer
 - Tailwind CSS
 
-## Live link -
+## Live link 
 
 <!-- - [Firefox store](https://addons.mozilla.org/en-US/firefox/addon/focussive/) -->
-- [Moments Of The Day](https://moments-of-the-day.netlify.app/)
+[Moments Of The Day](https://moments-of-the-day.netlify.app/)
 
-## Demo -
+## Demo 
 
 
 
-## Getting Started -
+## Getting Started 
 
 ## **How to install and run locally ?**
 
