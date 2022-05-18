@@ -10,9 +10,6 @@ module.exports = {
       xl: '1440px',
     },
     extend: {
-      height: (theme) => ({
-        "screen/5": "calc(100vh / 5)",
-      }),
       fontFamily: {
         Roboto: ["Roboto", "sans-serif"],
       },
