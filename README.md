@@ -50,28 +50,8 @@
 ## **How to install and run locally ?**
 
 ```
-$ git clone ## Getting Started
-
-## **How to install and run locally ?**
-
-```
 $ git clone https://github.com/ranitasahaa1230/browser-extension.git
 $ cd browser-extension
-$ npm install
-$ npm start
-```
-
-### Liked the project? Do please ⭐ it :)
-
-## Authors
-
-- [@ranitasahaa1230](https://github.com/ranitasahaa1230)
-
-## 👩‍💻 Connect with me
-
-<a href="https://twitter.com/Ifullofsunshine"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
-<a href="https://www.linkedin.com/in/saharanitaa1230dreamer/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-$ cd learning-hub-library
 $ npm install
 $ npm start
 ```
