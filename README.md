@@ -27,8 +27,8 @@
 - Displays current time, city, temperature and weather in sync
 - Add your main Focus of the day, you can edit and delete it. This gets deleted automatically when a new day starts so that user can update a new focus.
 - Add additional Todos for the day, you can complete and delete it. Todos gets saved to the local storage.
-- Wallpaper changes on every refresh
-- Quote changes every day
+- Wallpaper changes on every refresh.
+- Quote changes on every refresh.
 
 ## Technologies used
 
