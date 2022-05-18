@@ -38,7 +38,7 @@ export const Weather = () => {
             <img
               src={`https://openweathermap.org/img/wn/${image}@2x.png`}
               alt="weather-logo"
-              className="w-14"
+              className="w-14 text-white"
             />
             <div className="sm:text-3xl font-bold">
               {temp}
