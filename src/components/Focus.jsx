@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useBrowser } from "../contexts";
 
 export const Focus = () => {
@@ -33,18 +33,18 @@ export const Focus = () => {
     }
   };
 
-  useEffect(() => {
-    const getTasks = JSON.parse(localStorage.getItem("tasks"));
-    if (getTasks) {
-      if (getTasks.date !== today) {
-        localStorage.removeItem("tasks");
-      } else {
-        setMainFocus(getTasks.focus);
-        setFocusCompleted(getTasks.completed);
-      }
-    }
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   const getTasks = JSON.parse(localStorage.getItem("tasks"));
+  //   if (getTasks) {
+  //     if (getTasks.date !== today) {
+  //       localStorage.removeItem("tasks");
+  //     } else {
+  //       setMainFocus(getTasks.focus);
+  //       setFocusCompleted(getTasks.completed);
+  //     }
+  //   }
+  //   // eslint-disable-next-line
+  // }, []);
 
   return (
     <div>
