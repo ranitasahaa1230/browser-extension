@@ -11,7 +11,7 @@ export const Todo = () => {
   const [openTodo, setOpenTodo] = useState(false);
 
   const handleTodo = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && text.length>0) {
       const id = Math.random();
       setTodos((updateTodos) => [
         ...updateTodos,
