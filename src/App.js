@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div
-      className="h-screen bg-center bg-no-repeat bg-cover"
+      className="h-screen bg-center bg-no-repeat bg-cover opacity-85"
       style={{
         backgroundImage: `url("${bgImage}")`,
       }}
