@@ -6,24 +6,10 @@ import { ImCross } from "react-icons/im";
 export const Todo = () => {
   const [text, setText] = useState("");
   const [todos, setTodos] = useState([]);
-  const [editId, setEditID] = useState(0);
+  const [isEdit, setEdit] = useState(false);
+  const [toBeEdited, setToBeEdited] = useState({});
   const [openTodo, setOpenTodo] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (editId) {
-      const editTodo = todos.find((i) => i.id === editId);
-      const updateTodo = todos.map((item) =>
-        item.id === editTodo.id
-          ? (item = { id: item.id, text })
-          : { id: item.id, text: item.text, completed: false }
-      );
-      setTodos(updateTodo);
-      setEditID(0);
-      setText("");
-      return;
-    }
-  };
   const handleTodo = (e) => {
     if (e.key === "Enter") {
       const id = Math.random();
@@ -45,15 +31,21 @@ export const Todo = () => {
     setTodos(JSON.parse(localStorage.getItem("todoo")) || []);
   }, []);
 
-  const editHandler = (id) => {
-    const editTodo = todos.find((elem) => elem.id === id);
-    setText(editTodo.text);
-    setEditID(id);
+  const editHandler = (item) => {
+    setToBeEdited(item);
   };
+
+  const updateTodo = () => {
+    setTodos(() =>
+      todos.map((item) => (item.id === toBeEdited.id ? toBeEdited : item))
+    );
+  };
+
   const deleteHandler = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
     localStorage.removeItem("todoo");
   };
+
   const handleTodos = (id) => {
     const todoToBeCompleted = todos.find((elem) => elem.id === id);
     todoToBeCompleted.completed = !todoToBeCompleted.completed;
@@ -62,6 +54,9 @@ export const Todo = () => {
       todoToBeCompleted,
     ];
     setTodos(completedTodos);
+    // setTodos((todo)=>(
+    //   todo.map((item)=>item.id === itemId ? {...item,completed:!item.completed} : item)
+    // ))
   };
 
   return (
@@ -114,7 +109,10 @@ export const Todo = () => {
                   <span className="sm:text-xl m-0.5">{item.text}</span>
                   <span
                     className="px-1.5 text-lime-400 cursor-pointer"
-                    onClick={() => editHandler(item.id)}
+                    onClick={() => {
+                      editHandler(item);
+                      setEdit(true);
+                    }}
                   >
                     <FaEdit size={18} />
                   </span>
@@ -129,16 +127,45 @@ export const Todo = () => {
             </ul>
           </div>
           <div className="text-left m-1">
-            <form onSubmit={handleSubmit} id="handle-todo">
-              <input
-                type="text"
-                className="border-0 outline-none rounded-md text-white cursor-pointer bg-transparent"
-                placeholder="New Todo"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                onKeyPress={handleTodo}
-              />
-            </form>
+            {!isEdit && (
+              <form onSubmit={(e) => e.preventDefault()} id="handle-todo">
+                <input
+                  type="text"
+                  className="border-0 outline-none rounded-md text-white cursor-pointer bg-transparent"
+                  placeholder="New Todo"
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  onKeyPress={handleTodo}
+                />
+              </form>
+            )}
+          </div>
+
+          <div className="text-left m-1">
+            {isEdit && (
+              <form onSubmit={(e) => e.preventDefault()} id="handle-todo">
+                <input
+                  type="text"
+                  className="border-0 outline-none rounded-md text-white cursor-pointer bg-transparent"
+                  placeholder="New Todo"
+                  value={toBeEdited.text}
+                  onChange={(e) =>
+                    setToBeEdited((todo) => {
+                      return {
+                        ...todo,
+                        text: e.target.value,
+                      };
+                    })
+                  }
+                  onKeyPress={(e) => {
+                    if (e.key === "Enter") {
+                      updateTodo();
+                      setEdit(false);
+                    }
+                  }}
+                />
+              </form>
+            )}
           </div>
         </div>
       )}
